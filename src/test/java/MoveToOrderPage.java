@@ -4,9 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import page_objects.MainPage;
+import pageobjects.MainPage;
 
-public class Goto {
+public class MoveToOrderPage {
     private WebDriver driver;
     private MainPage mainPage;
 
@@ -22,12 +22,12 @@ public class Goto {
     }
 
     @Test
-    public void Order1(){
+    public void bottomButton(){
         mainPage.clickBottomOrderButton();
         Assert.assertEquals("https://qa-scooter.praktikum-services.ru/order",driver.getCurrentUrl());
     }
     @Test
-    public void Order2(){
+    public void topButton(){
         mainPage.clickTopOrderButton();
         Assert.assertEquals("https://qa-scooter.praktikum-services.ru/order",driver.getCurrentUrl());
     }

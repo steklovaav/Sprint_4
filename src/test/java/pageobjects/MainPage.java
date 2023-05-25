@@ -1,10 +1,9 @@
-package page_objects;
+package pageobjects;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -37,9 +36,13 @@ public class MainPage {
                 .until(ExpectedConditions.visibilityOfElementLocated(cookieConfirmButton));
     }
 
-    public void clickByAccordeonItem(String buttonText, String displayedText){
-        driver.findElement(By.xpath(".//div[@class='accordion__button' and text()='"+buttonText+"']/../..")).click();
-        Assert.assertTrue(driver.findElement(By.xpath(".//div[@class='accordion__panel']/p[text()='"+displayedText+"']")).isDisplayed());
+    public void clickByAccordeonItem(int number, String buttonText, String displayedText){
+        WebElement header = driver.findElement(By.id("accordion__heading-"+Integer.toString(number)));
+        Assert.assertEquals(buttonText, header.getText());
+        header.click();
+        WebElement panel = driver.findElement(By.xpath(".//div[@id='accordion__panel-"+Integer.toString(number)+"']/p"));
+        Assert.assertTrue(panel.isDisplayed());
+        Assert.assertEquals(displayedText,panel.getText());
     }
 
 }

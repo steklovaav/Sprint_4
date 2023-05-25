@@ -5,8 +5,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import page_objects.ModalWindow;
-import page_objects.OrderPage;
+import pageobjects.ModalWindow;
+import pageobjects.OrderPage;
 
 @RunWith(Parameterized.class)
 public class Order {
